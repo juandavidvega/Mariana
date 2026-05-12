@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi bebé ❤️</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --romance-pink: #ffb3c1;
+            --deep-pink: #ff4d6d;
+            --soft-white: #fff5f7;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            background: var(--soft-white);
+            font-family: 'Poppins', sans-serif;
+            color: #444;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        #bg-canvas {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at center, #ffffff 0%, #ffccd5 100%);
+        }
+
+        /* DECORACIÓN DE ESQUINAS (FIJA) */
+        .corner-decor {
+            position: fixed;
+            font-size: 40px;
+            z-index: 100;
+            pointer-events: none;
+            filter: drop-shadow(0 0 10px rgba(255, 77, 109, 0.3));
+            animation: pulse 2s infinite ease-in-out;
+        }
+        .top-left { top: 20px; left: 20px; }
+        .top-right { top: 20px; right: 20px; }
+        .bottom-left { bottom: 20px; left: 20px; }
+        .bottom-right { bottom: 20px; right: 20px; }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+
+        /* Pantalla de Inicio */
+        #hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .gift-box {
+            font-size: 100px;
+            cursor: pointer;
+            animation: bounceGift 2s infinite ease-in-out;
+        }
+
+        @keyframes bounceGift {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.1); }
+        }
+
+        /* Estructura de Secciones */
+        .story-section {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 60px 20px;
+        }
+
+        /* SEPARADOR */
+        .connector {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: -20px 0;
+            z-index: 2;
+        }
+
+        .line {
+            width: 2px;
+            height: 80px;
+            border-left: 2px dashed var(--romance-pink);
+        }
+
+        .mid-icon {
+            font-size: 24px;
+            margin: 10px 0;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+        }
+
+        /* Tarjetas */
+        .love-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 40px 10px;
+            box-shadow: 0 15px 40px rgba(255, 77, 109, 0.15);
+            max-width: 450px;
+            text-align: center;
+            border: 1px solid rgba(255, 77, 109, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+            backdrop-filter: blur(5px);
+        }
+
+        .story-section.visible .love-card {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 { font-family: 'Dancing Script', cursive; color: var(--deep-pink); font-size: 2.5rem; margin-top: 0; }
+        p { line-height: 1.8; font-size: 1.1rem; }
+
+        /* Final */
+        .final-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: var(--deep-pink);
+            color: white;
+            text-align: center;
+        }
+
+        .te-amo { font-family: 'Dancing Script', cursive; font-size: 6rem; animation: beat 1s infinite; }
+        @keyframes beat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+
+        #main-content { display: none; }
+    </style>
+</head>
+<body>
+
+    <div id="bg-canvas"></div>
+
+    <!-- Esquinitas decorativas -->
+    <div class="corner-decor top-left">🌸</div>
+    <div class="corner-decor top-right">✨</div>
+    <div class="corner-decor bottom-left">💖</div>
+    <div class="corner-decor bottom-right">🌸</div>
+
+    <section id="hero">
+        <div class="gift-box" onclick="revealStory()">🎁</div>
+        <h1 style="font-family: 'Dancing Script'; color: #ff4d6d; font-size: 3.5rem;">Para mi bebé...</h1>
+    </section>
+
+    <main id="main-content">
+        <!-- SECCIÓN 1 -->
+        <section class="story-section">
+            <div class="love-card">
+                <h2>Desde el inicio...</h2>
+                <p>Desde que te conocí, supe que teníamos una conexión diferente, ya que así habiendo tanta gente ahí en esa salida, tú eras la única que me interesaba.</p>
+            </div>
+        </section>
+
+        <div class="connector"><div class="line"></div><div class="mid-icon">💖</div><div class="line"></div></div>
+
+        <!-- SECCIÓN 2 -->
+        <section class="story-section">
+            <div class="love-card">
+                <p>Cada día que hablamos se siente muy lindo y a veces no encuentro las palabras exactas para decirte lo mucho que valoro cada momento, cada risa y cada llamada que hacemos. Por eso quise aprender a cómo hacer esto, siendo algo único como lo eres tú para mí.</p>
+            </div>
+        </section>
+
+        <div class="connector"><div class="line"></div><div class="mid-icon">🌸</div><div class="line"></div></div>
+
+        <!-- SECCIÓN 3 -->
+        <section class="story-section">
+            <div class="love-card">
+                <p>Quiero que sepas que amo tu forma de ser, tus ojos y esa sonrisa que tienes. Gracias por haberte convertido tan especial en este poco tiempo que llevamos hablando y por dejarme ser parte de tus días.</p>
+            </div>
+        </section>
+
+        <div class="connector"><div class="line"></div><div class="mid-icon">✨</div><div class="line"></div></div>
+
+        <!-- SECCIÓN 4 (LA NUEVA TARJETA) -->
+        <section class="story-section">
+            <div class="love-card" style="border: 2px solid var(--deep-pink);">
+                <h2>Un momento importante</h2>
+                <p>Hago todo esto porque nos dijimos nuestro primer "te amo" hace poco y para mí eso es algo importante.</p>
+                <p>Quiero que sepas que voy a dar todo de mí para que esto funcione y para que sigamos construyendo algo lindo juntos.</p>
+            </div>
+        </section>
+
+        <div class="connector"><div class="line"></div><div class="mid-icon">💕</div><div class="line"></div></div>
+
+        <!-- SECCIÓN 5 -->
+        <section class="story-section">
+            <div class="love-card">
+                <p>Así no llevemos todo el tiempo del mundo hablando, yo contigo quiero algo serio y poco a poco lo vamos a construir.</p>
+                <p>Me gustaría que nos viéramos más y pues este es solo un pequeño detalle, pero está lleno de todo el cariño que te tengo.</p>
+            </div>
+        </section>
+
+        <section class="final-section">
+            <div class="te-amo">¡Te amo! ❤️</div>
+            <button style="background: white; color: #ff4d6d; border: none; padding: 12px 35px; border-radius: 25px; font-weight: bold; cursor: pointer; margin-top: 25px;" onclick="location.reload()">Reiniciar</button>
+        </section>
+    </main>
+
+    <script>
+        function revealStory() {
+            document.getElementById('hero').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.2 });
+
+            document.querySelectorAll('.story-section').forEach(s => observer.observe(s));
+            createHearts();
+        }
+
+        function createHearts() {
+            setInterval(() => {
+                const h = document.createElement('div');
+                h.innerHTML = '❤️';
+                h.style.position = 'fixed';
+                h.style.left = Math.random() * 100 + 'vw';
+                h.style.bottom = '-20px';
+                h.style.opacity = '0.3';
+                h.style.fontSize = Math.random() * 20 + 10 + 'px';
+                h.style.transition = 'transform 7s linear';
+                document.body.appendChild(h);
+                setTimeout(() => h.style.transform = `translateY(-110vh)`, 50);
+                setTimeout(() => h.remove(), 7000);
+            }, 500);
+        }
+    </script>
+</body>
+</html>
